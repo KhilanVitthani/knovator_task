@@ -24,7 +24,7 @@ Follow these steps to run the application:
 ## Clone the Repository:
 
 ```bash
-  git clone https://github.com/your-repository/flutter-task-management.git
+  git clone https://github.com/KhilanVitthani/knovator_task.git
 ```
 
 ## Install Dependencies
