@@ -86,7 +86,8 @@ class HomeController extends GetxController {
         if (postList.isEmpty) {
           getIt<CustomDialogs>().getDialog(
             title: "Error",
-            desc: "${message}",
+            desc:
+                "Something went wrong. Please check your internet connection.",
           );
         }
       },
