@@ -1,17 +1,39 @@
-# knovator_task
+# Architectural Choices
+MVC (Model-View-Controller) Pattern
+The application follows the MVC architectural pattern, which separates the application into three interconnected components:
 
-A new Flutter project.
+- Model: Represents the data structure and business logic. It manages the data, including fetching from the API and storing it in local storage.
+- View: The UI components that display the data. It includes the screens and widgets that the user interacts with.
+- Controller: Acts as an intermediary between the Model and the View. It handles user inputs, processes them, and updates the View with data from the Model.
+  This separation of concerns enhances maintainability, scalability, and testability of the application.
 
-## Getting Started
+# Third-Party Libraries
+The application uses several third-party libraries to implement its features:
 
-This project is a starting point for a Flutter application.
+- get: For getx state management.
+- connectivity_plus: For check the network connectivity.
+- dio:For making API calls.
+- sqflite: For storing and retrieving data locally.
+- get_storage: For simple key-value storage.
+- get_it: For service locator.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Running the Application
+Follow these steps to run the application:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# knovator_task
+## Clone the Repository:
+
+```bash
+  git clone https://github.com/your-repository/flutter-task-management.git
+```
+
+## Install Dependencies
+
+```bash
+  flutter pub get
+```
+## Run the Application:
+
+```bash
+  flutter run
+```
