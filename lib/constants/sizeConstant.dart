@@ -1,12 +1,5 @@
-import 'dart:io';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../main.dart';
-import 'api_constants.dart';
 
 class MySize {
   static late MediaQueryData _mediaQueryData;
@@ -218,88 +211,6 @@ getSnackBar(
       content: Text(text, style: TextStyle(fontSize: MySize.getHeight(size))),
       duration: Duration(milliseconds: duration),
     ),
-  );
-}
-
-CachedNetworkImage getImageByLink(
-    {required String url,
-    required double height,
-    required double width,
-    bool isLoading = false,
-    bool colorFilter = false,
-    String imagePlaceHolder = "man_icon.png",
-    BoxFit boxFit = BoxFit.cover}) {
-  return CachedNetworkImage(
-    imageUrl: url,
-    imageBuilder: (context, imageProvider) => Container(
-      height: MySize.getHeight(height),
-      width: MySize.getHeight(width),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: imageProvider,
-          fit: boxFit,
-          colorFilter: (colorFilter)
-              ? ColorFilter.mode(
-                  Colors.black.withOpacity(0.6), BlendMode.darken)
-              : null,
-        ),
-      ),
-    ),
-    placeholder: (context, url) => (isLoading)
-        ? Image(
-            image: AssetImage(imagePath + imagePlaceHolder),
-            height: MySize.getHeight(height),
-            width: MySize.getHeight(width),
-            fit: BoxFit.contain)
-        : Container(
-            height: MySize.getHeight(height),
-            width: MySize.getHeight(width),
-            child: LinearProgressIndicator(
-              color: Colors.grey.shade200,
-              backgroundColor: Colors.grey.shade100,
-            ),
-          ),
-    errorWidget: (context, url, error) => Image(
-        image: AssetImage(imagePath + imagePlaceHolder),
-        height: MySize.getHeight(height),
-        width: MySize.getHeight(width),
-        fit: BoxFit.contain),
-  );
-}
-
-CachedNetworkImage getImageByLinkWithutHeight(
-    {required String url,
-    required double width,
-    bool isLoading = false,
-    bool colorFilter = false,
-    String imagePlaceHolder = "man_icon.png",
-    BoxFit boxFit = BoxFit.cover}) {
-  return CachedNetworkImage(
-    imageUrl: url,
-    imageBuilder: (context, imageProvider) => Container(
-      width: MySize.getHeight(width),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: imageProvider,
-          fit: boxFit,
-          colorFilter: (colorFilter)
-              ? ColorFilter.mode(
-                  Colors.black.withOpacity(0.6), BlendMode.darken)
-              : null,
-        ),
-      ),
-    ),
-    placeholder: (context, url) => Container(
-      width: MySize.getHeight(width),
-      child: LinearProgressIndicator(
-        color: Colors.grey.shade200,
-        backgroundColor: Colors.grey.shade100,
-      ),
-    ),
-    errorWidget: (context, url, error) => Image(
-        image: AssetImage(imagePath + imagePlaceHolder),
-        width: width,
-        fit: BoxFit.contain),
   );
 }
 
